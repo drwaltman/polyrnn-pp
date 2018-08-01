@@ -118,3 +118,6 @@ venv.bak/
 /models/ggnn
 /models/poly
 /models/checkpoints_cityscapes.tar.gz
+
+# Output
+/output
