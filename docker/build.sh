@@ -1,0 +1,1 @@
+docker build -t polyrnn_pp/jupyter -f jupyter.docker .
