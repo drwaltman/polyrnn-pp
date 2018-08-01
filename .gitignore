@@ -113,3 +113,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Models
+/models/evalnet
+/models/ggnn
+/models/poly
+/models/checkpoints_cityscapes.tar.gz
