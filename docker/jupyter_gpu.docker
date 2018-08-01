@@ -1,14 +1,13 @@
 # Choose CUDA image:
 # https://store.docker.com/community/images/nvidia/cuda
 # https://github.com/NVIDIA/nvidia-docker/wiki/CUDA
-FROM nvidia/cuda:9.0-runtime-ubuntu16.04
+FROM nvidia/cuda:8.0-cudnn6-runtime-ubuntu16.04
 
 # Install apt-get packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
-        cuda-command-line-tools-9.0 \
-        libcudnn7=7.0.*+cuda9.0 \
+        cuda-command-line-tools-8.0 \
         libgtk2.0-dev \
         python-dev \
         python-pip \
@@ -51,6 +50,9 @@ RUN pip install --no-cache-dir \
         tqdm==4.19.9 \
         Werkzeug==0.14.1 \
     && jupyter contrib nbextension install --user
+
+# Add CUDA path for TensorFlow runtime
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # Add CUPTI path for TensorFlow CUDA profiling
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
