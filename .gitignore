@@ -117,7 +117,7 @@ venv.bak/
 /models/evalnet
 /models/ggnn
 /models/poly
-/models/checkpoints_cityscapes.tar.gz
+checkpoints_cityscapes.tar.gz
 
 # Output
 /output
